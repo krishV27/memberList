@@ -1,0 +1,21 @@
+.body-section {
+  height: auto;
+  background-color: cornflowerblue;
+}
+.box-section {
+  height: fit-content;
+  min-height: 100vh;
+  width: 40vw;
+  margin: auto;
+}
+.title {
+  text-align: center;
+  padding: 15% 15% 5% 15%;
+  color: white;
+}
+.filter-label {
+  color: white;
+}
+.mat-select {
+  background-color: white;
+}
