@@ -52,6 +52,14 @@
 .grey {
   background-color: dimgray;
 }
+.filter {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background-color: cornflowerblue;
+  padding-bottom: 10px;
+}
 
 @media only screen and (max-width: 991px){
   .box-section {

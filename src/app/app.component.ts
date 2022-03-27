@@ -7,7 +7,7 @@ import {default as data} from '../data/userlist.json';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ShowMemberList';
+  title = 'Members List';
   statusDict = {
     All: 'All',
     active: 'Online',
