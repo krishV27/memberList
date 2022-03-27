@@ -1,12 +1,11 @@
 .body-section {
-  height: auto;
+  min-height: 100vh;
   background-color: cornflowerblue;
 }
 .box-section {
-  height: fit-content;
-  min-height: 100vh;
   width: 40vw;
   margin: auto;
+  padding-bottom: 11px;
 }
 .title {
   text-align: center;
@@ -23,6 +22,7 @@
   border-radius: 0;
   padding: 3px;
   height: 6vh;
+  box-shadow: none;
 }
 .matCards {
   display: inline-block;
