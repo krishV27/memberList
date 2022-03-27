@@ -19,3 +19,21 @@
 .mat-select {
   background-color: white;
 }
+.mat-card {
+  border-radius: 0;
+  padding: 3px;
+  height: 6vh;
+}
+.matCards {
+  display: inline-block;
+  margin-left: 5%;
+}
+.mat-card-title {
+  font-size: 14px;
+  color: dimgray;
+  margin-bottom: 0;
+}
+.mat-card-subtitle {
+  font-style: italic;
+  font-size: 11px;
+}
