@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-2">
         <h5 class="filter-label">Status</h5>
-        <mat-select [(ngModel)]="filterDefault">
+        <mat-select [(ngModel)]="filterDefault" (ngModelChange)="changeStatus()">
           <mat-option *ngFor="let key of keys" [value]="key">
             {{statusDict[key]}}
           </mat-option>
@@ -12,7 +12,7 @@
       </div>
       <div class="col-md-2">
         <h5 class="filter-label">Order By</h5>
-        <mat-select>
+        <mat-select [(ngModel)]="sortDefault" (ngModelChange)="applySort()">
           <mat-option *ngFor="let val of ['A-Z', 'Z-A']" [value]="val">
             {{val}}
           </mat-option>
@@ -22,6 +22,9 @@
     <div class="row mt-3">
       <div *ngFor="let user of activeUsers" class="col-md-6 mt-2">
         <mat-card>
+          <div class="dot" [ngClass]="{'green': user.status === 'active',
+                                       'grey': user.status === 'inactive',
+                                       'orange': user.status === 'away'}"></div>
           <div class="matCards">
             <mat-card-title>{{user['firstName']}} {{user['lastName']}}</mat-card-title>
             <mat-card-subtitle>{{statusDict[user.status]}}</mat-card-subtitle>

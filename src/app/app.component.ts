@@ -15,6 +15,7 @@ export class AppComponent {
     away: 'Away'
   };
   filterDefault = 'All';
+  sortDefault = 'A-Z';
   activeUsers = [];
   keys = [];
   masterList = [];
@@ -31,5 +32,25 @@ export class AppComponent {
       return age > 18;
     });
     this.masterList = this.activeUsers;
+    this.changeStatus();
+    this.applySort();
+  }
+
+  changeStatus() {
+    if (this.filterDefault === 'All') {
+      this.activeUsers = this.masterList;
+    } else {
+      this.activeUsers = this.masterList.filter(exist => {
+        return exist.status === this.filterDefault;
+      });
+    }
+  }
+
+  applySort() {
+    if (this.sortDefault === 'A-Z') {
+      this.activeUsers.sort((a, b) => (a.firstName > b.firstName) ? 1 : -1);
+    } else {
+      this.activeUsers.sort((a, b) => (a.firstName < b.firstName) ? 1 : -1);
+    }
   }
 }
