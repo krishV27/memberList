@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {default as data} from '../data/userlist.json';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -20,20 +21,26 @@ export class AppComponent {
   keys = [];
   masterList = [];
 
-  constructor() {
+  constructor(public toastr: ToastrService) {
     this.keys = Object.keys(this.statusDict);
 
     const today = new Date().getTime();
     let userDay: number;
     let age: number;
-    this.activeUsers = data.filter(exist => {
-      userDay = new Date(exist.dateOfBirth).getTime();
-      age = parseInt(String((today - userDay) / (1000 * 3600 * 24 * 365)) , 10);
-      return age > 18;
-    });
-    this.masterList = this.activeUsers;
-    this.changeStatus();
-    this.applySort();
+    if (data.length > 0) {
+      this.activeUsers = data.filter(exist => {
+        if (exist.dateOfBirth) {
+          userDay = new Date(exist.dateOfBirth).getTime();
+          age = parseInt(String((today - userDay) / (1000 * 3600 * 24 * 365)), 10);
+          return age > 18;
+        }
+      });
+      this.masterList = this.activeUsers;
+      this.changeStatus();
+      this.applySort();
+    } else {
+      this.toastr.error('There are no members to display');
+    }
   }
 
   changeStatus() {
